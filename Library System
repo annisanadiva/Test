@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    string nama[100], jenis_buku[100];
+    int npm[100], kode_buku[100], input, A;
+    
+    cout << "===========================" << endl;
+    cout << "    Sistem Perpustakaan    " << endl;
+    cout << "===========================" << endl << endl;
+    cout << "Menu: " << endl;
+    cout << "1. Peminjaman Buku" << endl;
+    cout << "2. Pengembalian Buku" << endl;
+    cout << "3. Exit" << endl << endl;
+    cout << "===========================" << endl;
+    cout << "Silakan Pilih Menu: "; cin >> input;
+    
+    switch(input) {
+    
+        case 1:
+            if (input == 1) {
+                cout << "Peminjaman Buku" << endl;
+                cout << "Masukkan Jumlah Peminjam Buku"; cin >> A;
+                
+                for (int i = 0; i < A; i++) {
+                    cout << "Masukkan Nama Mahasiswa: "; cin >> nama[i];
+                    cout << "Masukkan NPM Mahasiswa: "; cin >> npm[i];
+                    cout << "Jenis Buku Yang Dipinjam: "; cin >> jenis_buku[i];
+                    cout << "Masukkan Kode Buku Yang Dipinjam: "; cin >> kode_buku[i];
+                    cout << "===========================" << endl;
+                    
+                    cout <<"NPM        Nama        Jenis Buku        Kode Buku" << endl;
+                    for (int i = 0; i < A; i++){
+                   cout <<npm[i] <<"        "<<nama[i] <<"        "<<jenis_buku <<"        "<<kode_buku[i] << endl; 
+                    }    
+                }
+            }
+        break;
+    
+        case 2:
+            if (input == 2) {
+                cout << "Pengembalian Buku" << endl;
+                cout << endl;
+                int hari, total, denda;
+                string pilihan1;
+                
+                cout << "Lama Hari Peminjaman Buku: "; cin >> hari;
+                if (hari >= 7) {
+                    hari = hari - 7;
+                    denda = hari * 3000;
+                }else {
+                    denda = 0;
+                }
+                
+                cout << "Adakah Kerusakan Pada Buku? (Ya/Tidak): "; cin >> pilihan1;
+                if (pilihan1 == "Ya" || pilihan1 == "ya") {
+                    total = denda + 50000;
+                }else {
+                    total = denda;
+                }
+                cout << "Total Yang Harus Dibayar: Rp. " << total << endl;
+            }
+        break;
+        
+        case 3:
+        cout << "Terima Kasih Telah Menggunakan Sistem Perpustakaan Ini" << endl;
+        break;
+        
+        default:
+        cout << "Mohon Maaf Pilihan Yang Anda Masukkan Tidak Ada. Silakan Coba Lagi" << endl; 
+    }
+    return 0;
+}
